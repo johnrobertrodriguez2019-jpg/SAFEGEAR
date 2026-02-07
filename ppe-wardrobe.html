@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PPE Wardrobe - Automotive Workshop Safety</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFEB99 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a1a;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 16px rgba(255, 215, 0, 0.2);
+            border: 3px solid #FFD700;
+        }
+
+        .section h2 {
+            color: #FFA500;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #FFD700;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .video-card {
+            background: #FFFBF0;
+            border-radius: 10px;
+            padding: 1rem;
+            border: 2px solid #FFD700;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(255, 165, 0, 0.3);
+        }
+
+        .video-card h3 {
+            color: #FF8C00;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .video-placeholder {
+            background: linear-gradient(135deg, #FFE5B4 0%, #FFD700 100%);
+            height: 200px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            border: 2px dashed #FFA500;
+        }
+
+        .video-input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 2px solid #FFD700;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .image-card {
+            background: #FFFBF0;
+            border-radius: 10px;
+            padding: 1rem;
+            border: 2px solid #FFD700;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .image-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(255, 165, 0, 0.3);
+        }
+
+        .image-placeholder {
+            background: linear-gradient(135deg, #FFE5B4 0%, #FFD700 100%);
+            height: 180px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            border: 2px dashed #FFA500;
+        }
+
+        .image-card p {
+            color: #FF8C00;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .upload-section {
+            background: #FFF9E6;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px dashed #FFD700;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .upload-btn {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a1a;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .upload-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a1a;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .safety-badge {
+            display: inline-block;
+            background: #FFD700;
+            color: #1a1a1a;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            margin: 0.5rem;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .video-grid, .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🛡️ Development of a Personal Protective Equipment Wardrobe to Enhance Occupational Safety of Automotive Students During Workshop Activities</h1>
+        <p>Comprehensive Safety Training & Resource Hub</p>
+        <div style="margin-top: 1rem;">
+            <span class="safety-badge">👷 Safety First</span>
+            <span class="safety-badge">🔧 Workshop Ready</span>
+            <span class="safety-badge">📚 Educational</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Introduction Section -->
+        <div class="section">
+            <h2>📋 About This Project</h2>
+            <p style="font-size: 1.1rem; line-height: 1.8;">
+                This platform is dedicated to promoting workplace safety among automotive students through proper use of Personal Protective Equipment (PPE). Our comprehensive wardrobe system ensures students are equipped with the necessary protective gear during all workshop activities, reducing the risk of injuries and creating a culture of safety awareness.
+            </p>
+        </div>
+
+        <!-- Video Section -->
+        <div class="section">
+            <h2>🎥 Safety Training Videos</h2>
+            <p style="margin-bottom: 1rem; color: #666;">Educational videos demonstrating proper PPE usage, safety protocols, and workshop procedures</p>
+            
+            <div class="upload-section">
+                <p style="margin-bottom: 1rem; color: #FF8C00; font-weight: bold;">📤 Upload Your Training Videos</p>
+                <input type="file" id="videoUpload" accept="video/*" multiple style="display: none;">
+                <button class="upload-btn" onclick="document.getElementById('videoUpload').click()">Choose Video Files</button>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Supported formats: MP4, WebM, AVI</p>
+            </div>
+
+            <div class="video-grid" id="videoGrid">
+                <div class="video-card">
+                    <h3>Video 1: Introduction to PPE</h3>
+                    <div class="video-placeholder">📹 Upload Video</div>
+                    <input type="text" class="video-input" placeholder="Video URL (YouTube, Vimeo, etc.)">
+                </div>
+                <div class="video-card">
+                    <h3>Video 2: Safety Goggles & Eye Protection</h3>
+                    <div class="video-placeholder">📹 Upload Video</div>
+                    <input type="text" class="video-input" placeholder="Video URL (YouTube, Vimeo, etc.)">
+                </div>
+                <div class="video-card">
+                    <h3>Video 3: Gloves & Hand Safety</h3>
+                    <div class="video-placeholder">📹 Upload Video</div>
+                    <input type="text" class="video-input" placeholder="Video URL (YouTube, Vimeo, etc.)">
+                </div>
+                <div class="video-card">
+                    <h3>Video 4: Protective Footwear</h3>
+                    <div class="video-placeholder">📹 Upload Video</div>
+                    <input type="text" class="video-input" placeholder="Video URL (YouTube, Vimeo, etc.)">
+                </div>
+                <div class="video-card">
+                    <h3>Video 5: Coveralls & Body Protection</h3>
+                    <div class="video-placeholder">📹 Upload Video</div>
+                    <input type="text" class="video-input" placeholder="Video URL (YouTube, Vimeo, etc.)">
+                </div>
+                <div class="video-card">
+                    <h3>Video 6: Hearing Protection</h3>
+                    <div class="video-placeholder">📹 Upload Video</div>
+                    <input type="text" class="video-input" placeholder="Video URL (YouTube, Vimeo, etc.)">
+                </div>
+                <div class="video-card">
+                    <h3>Video 7: Respiratory Protection</h3>
+                    <div class="video-placeholder">📹 Upload Video</div>
+                    <input type="text" class="video-input" placeholder="Video URL (YouTube, Vimeo, etc.)">
+                </div>
+                <div class="video-card">
+                    <h3>Video 8: Workshop Safety Procedures</h3>
+                    <div class="video-placeholder">📹 Upload Video</div>
+                    <input type="text" class="video-input" placeholder="Video URL (YouTube, Vimeo, etc.)">
+                </div>
+                <div class="video-card">
+                    <h3>Video 9: Emergency Protocols</h3>
+                    <div class="video-placeholder">📹 Upload Video</div>
+                    <input type="text" class="video-input" placeholder="Video URL (YouTube, Vimeo, etc.)">
+                </div>
+                <div class="video-card">
+                    <h3>Video 10: PPE Maintenance & Care</h3>
+                    <div class="video-placeholder">📹 Upload Video</div>
+                    <input type="text" class="video-input" placeholder="Video URL (YouTube, Vimeo, etc.)">
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Gallery Section -->
+        <div class="section">
+            <h2>📸 PPE Image Gallery</h2>
+            <p style="margin-bottom: 1rem; color: #666;">Visual reference guide for proper PPE equipment and usage</p>
+            
+            <div class="upload-section">
+                <p style="margin-bottom: 1rem; color: #FF8C00; font-weight: bold;">📤 Upload Safety Images</p>
+                <input type="file" id="imageUpload" accept="image/*" multiple style="display: none;">
+                <button class="upload-btn" onclick="document.getElementById('imageUpload').click()">Choose Image Files</button>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #666;">Supported formats: JPG, PNG, WebP</p>
+            </div>
+
+            <div class="image-grid" id="imageGrid">
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 1</div>
+                    <p>Safety Helmet</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 2</div>
+                    <p>Safety Goggles</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 3</div>
+                    <p>Work Gloves</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 4</div>
+                    <p>Steel-Toe Boots</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 5</div>
+                    <p>Coveralls</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 6</div>
+                    <p>Ear Protection</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 7</div>
+                    <p>Face Shield</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 8</div>
+                    <p>Respirator Mask</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 9</div>
+                    <p>Safety Vest</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 10</div>
+                    <p>Welding Helmet</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 11</div>
+                    <p>Cut-Resistant Gloves</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 12</div>
+                    <p>Safety Apron</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 13</div>
+                    <p>Knee Pads</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 14</div>
+                    <p>Workshop Layout</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 15</div>
+                    <p>PPE Storage</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 16</div>
+                    <p>Safety Signs</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 17</div>
+                    <p>First Aid Station</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 18</div>
+                    <p>Emergency Equipment</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 19</div>
+                    <p>Proper Attire Demo</p>
+                </div>
+                <div class="image-card">
+                    <div class="image-placeholder">🖼️ Image 20</div>
+                    <p>Safety Checklist</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Safety Guidelines Section -->
+        <div class="section">
+            <h2>⚠️ Essential Safety Guidelines</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div style="background: #FFF9E6; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #FFD700;">
+                    <h3 style="color: #FF8C00; margin-bottom: 0.5rem;">✅ Before Workshop</h3>
+                    <ul style="margin-left: 1.5rem; line-height: 2;">
+                        <li>Inspect all PPE for damage</li>
+                        <li>Ensure proper fit</li>
+                        <li>Review safety protocols</li>
+                    </ul>
+                </div>
+                <div style="background: #FFF9E6; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #FFD700;">
+                    <h3 style="color: #FF8C00; margin-bottom: 0.5rem;">🔧 During Activities</h3>
+                    <ul style="margin-left: 1.5rem; line-height: 2;">
+                        <li>Keep PPE on at all times</li>
+                        <li>Report hazards immediately</li>
+                        <li>Follow proper procedures</li>
+                    </ul>
+                </div>
+                <div style="background: #FFF9E6; padding: 1.5rem; border-radius: 10px; border-left: 5px solid #FFD700;">
+                    <h3 style="color: #FF8C00; margin-bottom: 0.5rem;">🧼 After Workshop</h3>
+                    <ul style="margin-left: 1.5rem; line-height: 2;">
+                        <li>Clean and store PPE properly</li>
+                        <li>Report any damage</li>
+                        <li>Complete safety logs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <h3>🛡️ Safety is Our Priority</h3>
+        <p style="margin-top: 1rem;">Development of a Personal Protective Equipment Wardrobe to Enhance Occupational Safety</p>
+        <p style="margin-top: 0.5rem;">© 2024 Automotive Safety Training Program</p>
+    </div>
+
+    <script>
+        // Handle video file upload
+        document.getElementById('videoUpload').addEventListener('change', function(e) {
+            const files = e.target.files;
+            if (files.length > 0) {
+                alert(`${files.length} video file(s) selected. In a production environment, these would be uploaded to your server.`);
+            }
+        });
+
+        // Handle image file upload
+        document.getElementById('imageUpload').addEventListener('change', function(e) {
+            const files = e.target.files;
+            if (files.length > 0) {
+                alert(`${files.length} image file(s) selected. In a production environment, these would be uploaded to your server.`);
+            }
+        });
+
+        // Add click handlers for image enlargement
+        document.querySelectorAll('.image-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const title = this.querySelector('p').textContent;
+                alert(`Viewing: ${title}\n\nIn a production version, this would open a full-size image viewer.`);
+            });
+        });
+    </script>
+</body>
+</html>
